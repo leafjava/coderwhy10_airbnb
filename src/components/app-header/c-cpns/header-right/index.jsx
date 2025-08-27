@@ -3,21 +3,23 @@ import {RightWrapper} from './style'
 import IconGlobal from '@/assets/svg/icon_global'
 import IconMenu from '@/assets/svg/icon_menu'
 import IconAvatar from '@/assets/svg/icon_avatar'
+import IconProfileMenu from '@/assets/svg/icon-profile-menu'
+import IconProfileAvatar from '@/assets/svg/icon-profile-avatar'
 
 const HeaderRight = memo(() => {
   return (
     <RightWrapper>
       <div className='btns'>
-        <span>登录</span>
-        <span>注册</span>
-        <span>
+        <span className='btn'>登录</span>
+        <span className='btn'>注册</span>
+        <span className='btn'>
           <IconGlobal/>
         </span>
       </div>
 
       <div className='profile'>
-        <IconMenu/>
-        <IconAvatar/>
+        <IconProfileMenu/>
+        <IconProfileAvatar/>
       </div>
     </RightWrapper>
   )
