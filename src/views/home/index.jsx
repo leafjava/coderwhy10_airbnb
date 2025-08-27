@@ -8,6 +8,7 @@ import SectionHeader from '@/components/section-header'
 import RoomItem from '@/components/room-item'
 
 
+
 const Home = memo(() => {
   // 从redux中获取数据
   const {goodPriceInfo} = useSelector((state)=> ({
@@ -35,7 +36,8 @@ const Home = memo(() => {
           </ul>
         </div>
       </div>
-
+      
+      
     </HomeWrapper>
   )
 })
