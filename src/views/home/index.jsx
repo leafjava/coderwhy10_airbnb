@@ -12,9 +12,10 @@ import HomeSectionV1 from './c-cpns/home-section-v1'
 
 const Home = memo(() => {
   // 从redux中获取数据
-  const {goodPriceInfo,highScoreInfo} = useSelector((state)=> ({
+  const {goodPriceInfo,highScoreInfo,discountInfo} = useSelector((state)=> ({
     goodPriceInfo:state.home.goodPriceInfo,
-    highScoreInfo:state.home.highScoreInfo
+    highScoreInfo:state.home.highScoreInfo,
+    discountInfo:state.home.discountInfo
   }),shallowEqual)
 
   // 派发异步事件:发送网络请求
@@ -36,6 +37,12 @@ const Home = memo(() => {
           <SectionHeader title={highScoreInfo.title} subtitle={highScoreInfo.subtitle}/>
           <SectionRooms roomList={highScoreInfo.list}/>
         </div> */}
+
+        <div className='discount'>
+          <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}/>
+          <SectionRooms roomList={discountInfo.dest_list?.["成都"]} itemWidth="33.33%"/>
+        </div>
+
         <HomeSectionV1 infoData={goodPriceInfo}/>
         <HomeSectionV1 infoData={highScoreInfo}/>
       </div>
