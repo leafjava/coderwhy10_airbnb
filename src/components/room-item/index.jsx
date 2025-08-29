@@ -44,4 +44,5 @@ RoomItem.propTypes = {
   itemData:PropTypes.object
 }
 
+
 export default RoomItem

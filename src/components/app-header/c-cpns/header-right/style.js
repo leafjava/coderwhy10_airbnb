@@ -10,7 +10,8 @@ export const RightWrapper = styled.div`
 
   .btns {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    box-sizing: content-box;
 
     .btn {
       height: 18px;
@@ -18,6 +19,7 @@ export const RightWrapper = styled.div`
       padding: 12px 15px;
       cursor: pointer;
       border-radius: 22px;
+      box-sizing: content-box;
 
       &:hover {
         background-color: #f5f5f5;
