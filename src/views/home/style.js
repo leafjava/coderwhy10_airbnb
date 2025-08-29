@@ -6,7 +6,7 @@ export const HomeWrapper = styled.div`
   margin:0 auto;
 }
 
-.good-price{
+/* .good-price{
   margin-top:30px;
 
   .room-list{
@@ -14,7 +14,7 @@ export const HomeWrapper = styled.div`
     flex-wrap:wrap;
     margin:0 -8px;
   }
-}
+} */
 
 
 
