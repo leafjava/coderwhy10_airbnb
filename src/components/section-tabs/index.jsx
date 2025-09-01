@@ -8,6 +8,9 @@ import ScrollView from '@/base-ui/scroll-view'
 const SectionTabs = memo((props) => {
   const {tabNames = [],tabClick} = props
   const [currentIndex, setCurrentIndex] = useState(0)
+  tabNames.push('aaa')
+  tabNames.push('bbb')
+  tabNames.push('ccc')
 
   function itemClickHandle(index,item){
     console.log(index)
