@@ -10,6 +10,10 @@ const theme = {
     normal: "14px",
     large: "16px"
   },
+  text:{
+    primaryColor:"#484848",
+    secondaryColor:"#222"
+  },
   mixin: {
     boxShadow: `
       transition: box-shadow 0.2s ease;
