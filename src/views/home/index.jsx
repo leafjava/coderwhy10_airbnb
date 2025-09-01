@@ -14,10 +14,11 @@ import { isEmptyObject } from '@/utils'
 
 const Home = memo(() => {
   // 从redux中获取数据
-  const {goodPriceInfo,highScoreInfo,discountInfo} = useSelector((state)=> ({
+  const {goodPriceInfo,highScoreInfo,discountInfo,recommendInfo} = useSelector((state)=> ({
     goodPriceInfo:state.home.goodPriceInfo,
     highScoreInfo:state.home.highScoreInfo,
-    discountInfo:state.home.discountInfo
+    discountInfo:state.home.discountInfo,
+    recommendInfo:state.home.recommendInfo
   }),shallowEqual)
 
   // 数据的转换
@@ -56,6 +57,7 @@ const Home = memo(() => {
           <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33%"/>
         </div> */}
         {isEmptyObject(discountInfo) && <HomeSectionV2 infoData={discountInfo}/>}
+        {isEmptyObject(recommendInfo) && <HomeSectionV2 infoData={recommendInfo}/>}
 
         {isEmptyObject(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo}/>}
         {isEmptyObject(highScoreInfo) &&  <HomeSectionV1 infoData={highScoreInfo}/>}
