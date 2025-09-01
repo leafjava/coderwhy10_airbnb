@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo, useCallback, useEffect,useState } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 
 import { fetchHomeDataAction } from '@/store/modules/home'
@@ -20,7 +20,12 @@ const Home = memo(() => {
   }),shallowEqual)
 
   // 数据的转换
+  const [name,setName] = useState("佛山")
   const tabNames = discountInfo.dest_address?.map(item => item.name)
+
+  const tabClickHandle = useCallback((index, name)=>{
+    setName(name)
+  },[])
 
   // 派发异步事件:发送网络请求
   const dispatch = useDispatch()
@@ -44,8 +49,8 @@ const Home = memo(() => {
 
         <div className='discount'>
           <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}/>
-          <SectionTabs tabNames={tabNames}/>
-          <SectionRooms roomList={discountInfo.dest_list?.["成都"]} itemWidth="33.33%"/>
+          <SectionTabs tabNames={tabNames} tabClick={tabClickHandle}/>
+          <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33%"/>
         </div>
 
         <HomeSectionV1 infoData={goodPriceInfo}/>
