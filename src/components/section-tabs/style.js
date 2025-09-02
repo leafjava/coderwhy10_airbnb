@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TabsWrapper = styled.div`
-  display:flex;
+  /* display:flex; */
   /* overflow-x: auto; */
 
   .item {
