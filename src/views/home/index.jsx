@@ -10,15 +10,23 @@ import HomeSectionV1 from './c-cpns/home-section-v1'
 import SectionTabs from '@/components/section-tabs'
 import HomeSectionV2 from './c-cpns/home-section-v2'
 import { isEmptyObject } from '@/utils'
+import HomeLongfor from './c-cpns/home-longfor'
 
 
 const Home = memo(() => {
   // 从redux中获取数据
-  const {goodPriceInfo,highScoreInfo,discountInfo,recommendInfo} = useSelector((state)=> ({
+  const {
+    goodPriceInfo,
+    highScoreInfo,
+    discountInfo,
+    recommendInfo,
+    longforInfo
+  } = useSelector((state)=> ({
     goodPriceInfo:state.home.goodPriceInfo,
     highScoreInfo:state.home.highScoreInfo,
     discountInfo:state.home.discountInfo,
-    recommendInfo:state.home.recommendInfo
+    recommendInfo:state.home.recommendInfo,
+    longforInfo:state.home.longforInfo
   }),shallowEqual)
 
   // 数据的转换
@@ -56,8 +64,12 @@ const Home = memo(() => {
           <SectionTabs tabNames={tabNames} tabClick={tabClickHandle}/>
           <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33%"/>
         </div> */}
+        {isEmptyObject(longforInfo) && <HomeLongfor infoData={longforInfo}/>}
+
         {isEmptyObject(discountInfo) && <HomeSectionV2 infoData={discountInfo}/>}
         {isEmptyObject(recommendInfo) && <HomeSectionV2 infoData={recommendInfo}/>}
+
+        
 
         {isEmptyObject(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo}/>}
         {isEmptyObject(highScoreInfo) &&  <HomeSectionV1 infoData={highScoreInfo}/>}
